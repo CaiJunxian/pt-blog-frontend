@@ -12,6 +12,7 @@ var webpack = require('webpack')
 var proxyMiddleware = require('http-proxy-middleware')
 var webpackConfig = require('./webpack.dev.conf')
 
+
 // default port where dev server listens for incoming traffic
 var port = process.env.PORT || config.dev.port
 // automatically open browser, if not set will be false
@@ -21,6 +22,23 @@ var autoOpenBrowser = !!config.dev.autoOpenBrowser
 var proxyTable = config.dev.proxyTable
 
 var app = express()
+
+// define mock data and their api
+var mockData = require('../mockData.json')
+var SUCCESS_MSG = 'success'
+
+var apiRoutes = express.Router()
+
+apiRoutes.get('/articles', (req, res) => {
+  res.json({
+    code: '0',
+    msg: SUCCESS_MSG,
+    data: mockData.articles
+  })
+})
+
+app.use('/api', apiRoutes)
+
 var compiler = webpack(webpackConfig)
 
 var devMiddleware = require('webpack-dev-middleware')(compiler, {
