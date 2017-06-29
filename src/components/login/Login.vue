@@ -5,17 +5,17 @@
         <svg class="icon svg-comm svg-comm-width" aria-hidden="true">
           <use xlink:href="#icon-person"></use>
         </svg>
-        <input type="text" name="userName" placeholder="用户名">
+        <input type="text" name="userName" placeholder="用户名" v-model.trim="userName">
       </p>
       <p class="input">
         <svg class="icon svg-comm svg-comm-width" aria-hidden="true">
           <use xlink:href="#icon-fingerprint"></use>
         </svg>
-        <input type="password" placeholder="密码">
+        <input type="password" placeholder="密码" v-model.trim="password">
       </p>
-      <p class="info">提示信息</p>
+      <p class="info">{{info}}</p>
       <p class="button">
-        <button>登录</button>
+        <button @click="doLogin">登录</button>
       </p>
     </div>
   </section>
@@ -23,7 +23,26 @@
 
 <script type="text/ecmascript-6">
   export default {
-    name: 'Login'
+    name: 'Login',
+    data () {
+      return {
+        userName: '',
+        password: '',
+        info: ''
+      }
+    },
+    methods: {
+      doLogin () {
+        if (!this.userName) {
+          this.info = '请输入用户名'
+          return
+        }
+        if (!this.password) {
+          this.info = '请输入密码'
+          return
+        }
+      }
+    }
   }
 </script>
 
@@ -34,7 +53,8 @@
     .form
       width 500px
       height 400px
-      margin 0 auto
+      margin-top -200px
+      margin-left -250px
       position absolute
       top 50%
       left 50%
