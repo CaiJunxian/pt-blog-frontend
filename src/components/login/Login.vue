@@ -1,6 +1,6 @@
 <template>
   <section class="login">
-    <div class="form">
+    <div class="form" @keyup.enter="doLogin">
       <p class="input">
         <svg class="icon svg-comm svg-comm-width" aria-hidden="true">
           <use xlink:href="#icon-person"></use>
@@ -21,7 +21,9 @@
   </section>
 </template>
 
-<script type="text/ecmascript-6">
+<script>
+  import {mapActions} from 'vuex'
+
   export default {
     name: 'Login',
     data () {
@@ -41,10 +43,21 @@
           this.info = '请输入密码'
           return
         }
+        this.login({userName: this.userName, password: this.password})
+          .then(() => {
+            alert('success')
+          })
+          .catch(msg => {
+            this.info = msg
+            return
+          })
       },
       clearInfo () {
         this.info = ''
-      }
+      },
+      ...mapActions([
+        'login'
+      ])
     },
     watch: {
       userName: 'clearInfo',

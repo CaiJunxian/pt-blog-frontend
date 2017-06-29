@@ -23,17 +23,51 @@ var proxyTable = config.dev.proxyTable
 
 var app = express()
 
+var bodyParser = require('body-parser')
+
+app.use(bodyParser.json()) // for parsing application/json
+app.use(bodyParser.urlencoded({extended: true})) // for parsing application/x-www-form-urlencoded
+
 // define mock data and their api
 var mockData = require('../mockData.json')
-var SUCCESS_MSG = 'success'
+var resultConst = {
+  SUCCESS_MSG: 'success',
+  SUCCESS_CODE: '0',
+  ERROR_CODE: '1'
+}
 
 var apiRoutes = express.Router()
 
 apiRoutes.get('/articles', (req, res) => {
   res.json({
-    code: '0',
-    msg: SUCCESS_MSG,
+    code: resultConst.SUCCESS_CODE,
+    msg: resultConst.SUCCESS_MSG,
     data: mockData.articles
+  })
+})
+
+apiRoutes.post('/login', (req, res) => {
+  if (!req.body) {
+    return res.json({
+      code: resultConst.ERROR_CODE,
+      msg: 'login failed'
+    })
+  }
+  if (req.body.userName !== mockData.user.userName) {
+    return res.json({
+      code: resultConst.ERROR_CODE,
+      msg: 'This User do not Exist!'
+    })
+  }
+  if (req.body.password !== mockData.user.password) {
+    return res.json({
+      code: resultConst.ERROR_CODE,
+      msg: 'Password is Incorrect!'
+    })
+  }
+  res.json({
+    code: resultConst.SUCCESS_CODE,
+    msg: resultConst.SUCCESS_MSG
   })
 })
 
@@ -47,12 +81,13 @@ var devMiddleware = require('webpack-dev-middleware')(compiler, {
 })
 
 var hotMiddleware = require('webpack-hot-middleware')(compiler, {
-  log: () => {}
+  log: () => {
+  }
 })
 // force page reload when html-webpack-plugin template changes
 compiler.plugin('compilation', function (compilation) {
   compilation.plugin('html-webpack-plugin-after-emit', function (data, cb) {
-    hotMiddleware.publish({ action: 'reload' })
+    hotMiddleware.publish({action: 'reload'})
     cb()
   })
 })
@@ -61,7 +96,7 @@ compiler.plugin('compilation', function (compilation) {
 Object.keys(proxyTable).forEach(function (context) {
   var options = proxyTable[context]
   if (typeof options === 'string') {
-    options = { target: options }
+    options = {target: options}
   }
   app.use(proxyMiddleware(options.filter || context, options))
 })
