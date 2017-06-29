@@ -41,7 +41,14 @@
           this.info = '请输入密码'
           return
         }
+      },
+      clearInfo () {
+        this.info = ''
       }
+    },
+    watch: {
+      userName: 'clearInfo',
+      password: 'clearInfo'
     }
   }
 </script>
