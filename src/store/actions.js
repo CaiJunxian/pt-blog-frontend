@@ -9,8 +9,7 @@ export default {
     return Vue.http.post(`/${API}/login`, user)
       .then(response => {
         if (response.body.code === CODE.SUCCESS) {
-          console.log('success')
-          // TODO storing the access_token in localStorage
+          commit('setAccessToken', response.body.data.accessToken)
         } else {
           return Promise.reject(response.body.msg)
         }
