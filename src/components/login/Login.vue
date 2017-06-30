@@ -73,11 +73,10 @@
     .form
       width 500px
       height 400px
-      margin-top -200px
-      margin-left -250px
       position absolute
       top 50%
       left 50%
+      transform translate(-50%, -50%)
       > p
         height 50px
         text-align center
@@ -90,20 +89,26 @@
         &.input:hover
           color blue2
         input
-          transition all 0.4s
           width 200px
           padding 8px
+          border none
+          outline none
           border-bottom 1px solid blue1
           border-radius 3px
+          background-color transparent
+          transition all 0.4s
           &:focus
             width 210px
         button
-          transition all 0.4s
-          color black3
-          border 1px solid blue1
-          border-radius 4px
           width 60px
           height 30px
+          border-radius 4px
+          border 1px solid blue1
+          outline none
+          color black3
+          background-color transparent
+          cursor pointer
+          transition all 0.4s
           &:hover
             background-color blue2
             color #FFF
