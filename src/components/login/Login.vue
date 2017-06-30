@@ -45,7 +45,7 @@
         }
         this.login({userName: this.userName, password: this.password})
           .then(() => {
-            alert('success')
+            alert('login success')
           })
           .catch(msg => {
             this.info = msg
