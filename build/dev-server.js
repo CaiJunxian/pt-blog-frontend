@@ -67,7 +67,10 @@ apiRoutes.post('/login', (req, res) => {
   }
   res.json({
     code: resultConst.SUCCESS_CODE,
-    msg: resultConst.SUCCESS_MSG
+    msg: resultConst.SUCCESS_MSG,
+    data: {
+      accessToken: mockData.accessToken
+    }
   })
 })
 

@@ -3,5 +3,6 @@
     "userName": "test",
     "password": "test"
   },
+  "accessToken": "testAccessToken",
   "articles": []
 }
