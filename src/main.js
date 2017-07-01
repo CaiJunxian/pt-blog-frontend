@@ -13,6 +13,16 @@ Vue.config.productionTip = false
 
 Vue.use(VueResource)
 
+Vue.filter('toDate', date => {
+  const d = new Date(date)
+  return `${d.getFullYear()}年${(d.getMonth() + 1)}月${d.getDate()}日`
+})
+
+Vue.filter('toMonth', date => {
+  const d = new Date(date)
+  return `${d.getFullYear()}年${(d.getMonth() + 1)}月`
+})
+
 /* eslint-disable no-new */
 new Vue({
   router,
