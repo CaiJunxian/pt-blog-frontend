@@ -10,5 +10,8 @@ export default {
   setAccessToken (state, accessToken) {
     setLocalStorage(keys.ACCESS_TOKEN, accessToken)
     state.accessToken = accessToken
+  },
+  setArchives (state, archives) {
+    state.archives = archives
   }
 }

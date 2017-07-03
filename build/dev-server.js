@@ -46,6 +46,14 @@ apiRoutes.get('/articles', (req, res) => {
   })
 })
 
+apiRoutes.get('/archives', (req, res) => {
+  res.json({
+    code: resultConst.SUCCESS_CODE,
+    msg: resultConst.SUCCESS_MSG,
+    data: mockData.archives
+  })
+})
+
 apiRoutes.post('/login', (req, res) => {
   if (!req.body) {
     return res.json({

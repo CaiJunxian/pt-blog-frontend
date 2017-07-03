@@ -14,5 +14,15 @@ export default {
           return Promise.reject(response.body.msg)
         }
       })
+  },
+  getArchives ({commit}) {
+    return Vue.http.get(`/${API}/archives`)
+      .then(response => {
+        if (response.body.code === CODE.SUCCESS) {
+          commit('setArchives', response.body.data)
+        } else {
+          return Promise.reject(response.body.msg)
+        }
+      })
   }
 }

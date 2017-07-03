@@ -10,5 +10,6 @@ export default {
   },
   accessToken: getLocalStorage(keys.ACCESS_TOKEN),
   articles: [],
-  article: {}
+  article: {},
+  archives: []
 }

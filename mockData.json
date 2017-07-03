@@ -7,28 +7,28 @@
   "articles": [],
   "archives": [
     {
-      "year": "2017-05",
+      "date": "2017-05",
       "articles": [
         {
           "title": "test1",
-          "createTime": "2017-05-01 11:23:00"
+          "createdTime": "2017-05-01 11:23:00"
         },
         {
           "title": "test2",
-          "createTime": "2017-05-02 13:23:00"
+          "createdTime": "2017-05-02 13:23:00"
         }
       ]
     },
     {
-      "year": "2017-06",
+      "date": "2017-06",
       "articles": [
         {
           "title": "test3",
-          "createTime": "2017-06-02 11:23:00"
+          "createdTime": "2017-06-02 11:23:00"
         },
         {
           "title": "test4",
-          "createTime": "2017-05-20 13:23:00"
+          "createdTime": "2017-06-20 13:23:00"
         }
       ]
     }
