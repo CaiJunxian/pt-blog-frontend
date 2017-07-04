@@ -24,5 +24,15 @@ export default {
           return Promise.reject(response.body.msg)
         }
       })
+  },
+  getArticles ({commit}) {
+    return Vue.http.get(`/${API}/articles`)
+      .then(response => {
+        if (response.body.code === CODE.SUCCESS) {
+          commit('setArticles', response.body.data)
+        } else {
+          return Promise.reject(response.body.msg)
+        }
+      })
   }
 }

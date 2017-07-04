@@ -4,7 +4,24 @@
     "password": "test"
   },
   "accessToken": "testAccessToken",
-  "articles": [],
+  "articles": [
+    {
+      "title": "test1",
+      "createdTime": "2017-05-01"
+    },
+    {
+      "title": "test2",
+      "createdTime": "2017-05-01"
+    },
+    {
+      "title": "test3",
+      "createdTime": "2017-05-01"
+    },
+    {
+      "title": "test4",
+      "createdTime": "2017-05-01"
+    }
+  ],
   "archives": [
     {
       "date": "2017-05",

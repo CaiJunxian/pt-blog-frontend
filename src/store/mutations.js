@@ -13,5 +13,8 @@ export default {
   },
   setArchives (state, archives) {
     state.archives = archives
+  },
+  setArticles (state, articles) {
+    state.articles = articles
   }
 }
