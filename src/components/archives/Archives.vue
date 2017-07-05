@@ -7,7 +7,11 @@
           <ul>
             <li v-for="article in archive.articles">
               <span class="date">{{article.createdTime | toDate}}</span>
-              <span class="title">{{article.title}}</span>
+              <router-link :to="{name:'Article',query:{id:article._id}}"
+                           tag="span"
+                           class="title">
+                {{article.title}}
+              </router-link>
             </li>
           </ul>
         </li>

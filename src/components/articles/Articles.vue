@@ -8,7 +8,10 @@
         <th>选项</th>
       </tr>
       <tr v-for="(article, index) in articles">
-        <td>{{article.title}}</td>
+        <router-link :to="{name:'Article',query:{id:article._id}}"
+                     tag="td">
+          {{article.title}}
+        </router-link>
         <td>{{article.createdTime | toDate}}</td>
       </tr>
       </tbody>

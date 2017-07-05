@@ -5,26 +5,35 @@
   },
   "accessToken": "testAccessToken",
   "article": {
+    "_id": "1",
     "title": "test",
     "createdTime": "2017-07-01 12:00:35",
     "content": "testing content!"
   },
   "articles": [
     {
+      "_id": "1",
       "title": "test1",
-      "createdTime": "2017-05-01"
+      "createdTime": "2017-05-01",
+      "content": "testing content!"
     },
     {
+      "_id": "2",
       "title": "test2",
-      "createdTime": "2017-05-01"
+      "createdTime": "2017-05-01",
+      "content": "testing content!"
     },
     {
+      "_id": "3",
       "title": "test3",
-      "createdTime": "2017-05-01"
+      "createdTime": "2017-05-01",
+      "content": "testing content!"
     },
     {
+      "_id": "4",
       "title": "test4",
-      "createdTime": "2017-05-01"
+      "createdTime": "2017-05-01",
+      "content": "testing content!"
     }
   ],
   "archives": [
