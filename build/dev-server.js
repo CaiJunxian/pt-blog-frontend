@@ -38,6 +38,15 @@ var resultConst = {
 
 var apiRoutes = express.Router()
 
+apiRoutes.get('/articles/:id', (req, res) => {
+  console.log(req.params.id)
+  res.json({
+    code: resultConst.SUCCESS_CODE,
+    msg: resultConst.SUCCESS_MSG,
+    data: mockData.article
+  })
+})
+
 apiRoutes.get('/articles', (req, res) => {
   res.json({
     code: resultConst.SUCCESS_CODE,

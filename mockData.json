@@ -4,6 +4,11 @@
     "password": "test"
   },
   "accessToken": "testAccessToken",
+  "article": {
+    "title": "test",
+    "createdTime": "2017-07-01 12:00:35",
+    "content": "testing content!"
+  },
   "articles": [
     {
       "title": "test1",
